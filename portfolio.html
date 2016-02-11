@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Portfolio</h1>
+  <table class="table table-striped" ng-if='stocks.length'>
+    <thead>
+      <tr><th ng-repeat='(key, value) in stocks[0]' ng-click='order(key)'>{{key}}</th></tr>
+    </thead>
+      <tbody>
+        <tr ng-repeat='(key,stock) in stocks track by $index'>
+          <td ng-repeat='(key,value) in stock'>{{value}}</td>
+          <td><button class="btn btn-danger" ng-click='remove(stock)'>Remove</button></td>
+        </tr>
+      </tbody>
+  </table>
+  <button ui-sref='add' class="btn btn-primary">Add Stocks</button>
+</div>

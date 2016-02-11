@@ -1,0 +1,30 @@
+    <div class="main">
+      <div class="container container1">
+        <h1>Find those stocks!</h1>
+          <button ui-sref='portfolio' class="btn btn-primary">Portfolio</button>
+          <form class="form-inline input" role="form">
+            <div class="form-group">
+              <label for="name">Search:</label>
+              <input type="text" class="form-control" ng-model='name'>
+            </div>
+              <button type="submit" ng-click="getastock(name)" class="btn btn-success">Find</button>
+          </form>
+      </div>
+      <div class="container">
+        <table class="table table-striped" ng-if='stocks.length'>
+          <thead>
+            <tr><th ng-repeat='(key, value) in stocks[0]' ng-click='order(key)'>{{key}}</th></tr>
+          </thead>
+            <tbody>
+              <tr ng-repeat='(key,stock) in stocks'>
+                <td>{{stock.Symbol}}</td>
+                <td>{{stock.Name}}</td>
+                <td>{{stock.Exchange}}</td>
+                <td>
+                  <button ng-click="add(stock)" class="btn btn-success">Add</button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
